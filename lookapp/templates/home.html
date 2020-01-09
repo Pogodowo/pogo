@@ -4,6 +4,35 @@
 
 {% block content %}
 
-<h1>Cześć</h1>
 
-{%endblock%}
+</br>
+<br/><br/>
+
+{% if api %}
+   {% if api == "error" %}
+      coś nie działa
+   {% else %}
+<div class="jumbotron tak">
+  <h1 class="display-4"> temperatura :{{api.main.temp}}</h1>
+  <p class="lead">Miasto: {{ api.name}}</p>
+  <hr class="my-4">
+
+
+
+
+      temperatura :{{api.main.temp}}<br/><br/>
+      Miasto: {{ api.name}}
+   {% endif %}
+{% endif %}
+  {% if api.main.name != "Warsaw" %}
+    <p>Trzeba gdzieś pojechać</p>
+  {% elif api.main.temp == "Warsaw" %}
+    <p>Namiot for ever<p/>
+
+
+  {% endif %}
+
+
+</div>
+
+{% endblock %}
